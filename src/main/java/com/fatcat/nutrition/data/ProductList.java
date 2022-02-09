@@ -10,7 +10,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Setter
 @Getter
@@ -29,6 +31,10 @@ public class ProductList {
     @DBRef
     @ApiModelProperty(value = "products in productList", position = 3)
     private List<Product> products;
+
+    public ProductList() {
+        products = new ArrayList<>();
+    }
 
     public ProductList(String name) {
         this.name = name;
